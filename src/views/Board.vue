@@ -77,35 +77,35 @@
 <script>
 import Lines from '@/components/Lines.vue'
 
-  export default {
-    name: 'Board',
-    components: {
-      Lines
-    },
-    data () {
-      return {
-        lines: [{name: 'player1', pos: 1, char: 'A'},{name: 'player2', pos: 1, char: 'B'},{name: 'player3', pos: 1, char: 'C'}],
-        stat: 0
+export default {
+  name: 'Board',
+  components: {
+    Lines
+  },
+  data () {
+    return {
+      lines: [{ name: 'player1', pos: 1, char: 'A' }, { name: 'player2', pos: 1, char: 'B' }, { name: 'player3', pos: 1, char: 'C' }],
+      stat: 0
+    }
+  },
+  methods: {
+    move () {
+      if (this.stat >= this.lines.length) {
+        this.stat = 0
       }
-    },
-    methods: {
-      move () {
-        if(this.stat >= this.lines.length) {
-          this.stat = 0
-        }
-        this.lines.forEach(el=>{
-          if(el.name == this.lines[this.stat].name) {
-            let rand = Math.ceil(Math.random()*6)
-            el.pos += rand
-            if (el.pos >=30 ) {
-              el.pos = 30
-            }
+      this.lines.forEach(el => {
+        if (el.name == this.lines[this.stat].name) {
+          const rand = Math.ceil(Math.random() * 6)
+          el.pos += rand
+          if (el.pos >= 30) {
+            el.pos = 30
           }
-        })
-        this.stat++
-      }
+        }
+      })
+      this.stat++
     }
   }
+}
 </script>
 
 <style scoped>

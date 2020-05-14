@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Lobby from '../views/Lobby.vue'
 import Board from '../views/Board.vue'
 
 Vue.use(VueRouter)
@@ -10,6 +11,11 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/lobby',
+    name: 'Lobby',
+    component: Lobby
   },
   {
     path: '/game',

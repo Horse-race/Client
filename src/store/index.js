@@ -4,29 +4,27 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    users: []
+    username: ''
   },
   mutations: {
-    SET_USERS (state, payload) {
-      state.users = payload
+    SET_USERNAME (state, payload) {
+      state.username = payload
     }
   },
   actions: {
     login (context, payload) {
       return new Promise((resolve, reject) => {
         console.log('login user')
-        resolve(payload)  
+        localStorage.setItem('username', payload)
+        resolve(payload)
       })
     },
     logout (context, payload) {
       return new Promise((resolve, reject) => {
         console.log('logout user')
         localStorage.clear()
-        resolve(payload)  
+        resolve(payload)
       })
-    },
-    setUsers (context, payload) {
-      context.commit('SET_USERS', payload)
     }
   },
   modules: {

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 <template>
 <div class="Loginpage">
   <div class="Login">
@@ -36,7 +38,7 @@
     },
     methods: {
       login () {
-        this.$router.push('/game')
+        this.$router.push('/lobby')
       }
     }, 
     created () {
@@ -48,7 +50,6 @@
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
-
 .Loginpage{
   width: 100%;
   height: 600px;
@@ -56,13 +57,11 @@
   background-size: 60%;
   background-repeat: no-repeat;
 }
-
 .Login{
   margin-top: 145px;
   display: flex;
   justify-content: center;
 }
-
 .bracket{
   margin-top: 50px;
   background: rgba(252, 252, 252, 0.35);
@@ -72,35 +71,28 @@
   -moz-box-shadow: 15px 17px 51px -10px rgba(0,0,0,0.6);
   box-shadow: 15px 17px 51px -10px rgba(0,0,0,0.6);
 }
-
 .Loginform{
   display: flex;
   justify-content: center;
   width: 100%;
 }
-
 .Logintitle{
   color: black;
 }
-
 .content{
   margin-top: 50px;
 }
-
 .text-input{
   width: 500px;
   margin-right: 10px;
   border-radius: 1cm;
 }
-
 .btn{
   border-radius: 1cm;
 }
-
 .text-input::placeholder{
   text-align: center;
 }
-
 .text-input{
   text-align: center;
 }
