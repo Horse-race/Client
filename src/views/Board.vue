@@ -97,12 +97,12 @@ import Lines from '@/components/Lines.vue'
           if(el.name == this.lines[this.stat].name) {
             let rand = Math.ceil(Math.random()*6)
             el.pos += rand
-            this.stat++
             if (el.pos >=30 ) {
               el.pos = 30
             }
           }
         })
+        this.stat++
       }
     }
   }
