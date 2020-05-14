@@ -10,7 +10,7 @@
         <form @submit.prevent="login">
         <div class="content">
           <div class="row">
-            <input class="text-input" type="text" placeholder="input username" v-model="username">
+            <input class="text-input" type="text" placeholder="input username" v-model="data.username">
             <button type="submit" class="btn btn-primary" style="width: 80px;">Submit</button>
           </div>
         </div>
@@ -23,27 +23,24 @@
 </template>
 
 <script>
-import socket from '../config/socket'
+// import socket from '../config/socket'
   export default {
     name: 'Login',
     data () {
       return {
-        username: ''
+        data: {
+          username: '',
+          move: 0
+        }
       }
     },
     methods: {
       login () {
-        this.$store.dispatch('login', this.username)
-        .then((data) => {
-          this.username = ''
-          this.$router.push('/About')
-          socket.emit('player-login', data)
-        })
+        this.$router.push('/game')
       }
     }, 
     created () {
       if (localStorage.username) {
-        this.$router.push('/About')
       }
     }
   }
