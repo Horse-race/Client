@@ -70,13 +70,16 @@
                 </tr>
             </tbody>
         </table>
-        <h5>Dice Roll : {{diceroll}}</h5>
-        <button @click.prevent="move" v-if="userdata.length > 1">Go</button>
-        {{winner}}
+        <h5>ID : {{userId}}  {{stat}}</h5>
+        <div class="test" v-if="stat == userId">
+        <button class="btn btn-dark" @click.prevent="move" v-if="userdata.length > 1">Go</button>
+        </div>
+        <button @click.prevent="deleteData" v-if="winner">EXIT</button>
   </div>
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 import socket from '../config/socket'
   export default {
     name: 'Board',
@@ -84,25 +87,41 @@ import socket from '../config/socket'
       return {
         userdata: [],
         stat: 1,
-        diceroll: 0,
-        winner: ''
+        userId: 0,
+        winner: false
       }
     },
     methods: {
       move () {
+        this.stat++
+        if(this.stat >this.userdata.length){
+          this.stat = 1
+        }
+        socket.emit('round', this.stat)
+        socket.on('rounds', data => {
+          this.stat = data
+          console.log(data)
+        })
         this.userdata.forEach(user => {
           if (user.id == localStorage.id) {
             const rand = Math.ceil(Math.random(1)*6)
             user.pos += rand
             if (user.pos >= 30) {
-              user.pos = 30
-              user.finished = true
+              this.winner = true
               socket.emit('finish', user.name)
               socket.on('finish-msg', data => {
-                this.winner = data
-                localStorage.clear()
-                this.$router.push('/')
-                location.reload()
+                Swal.fire({
+                  title: 'The winner is '+ data,
+                  width: 600,
+                  padding: '3em',
+                  background: '#fff url(/images/trees.png)',
+                  backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                  `
+                })
               })
             }
           }
@@ -112,9 +131,16 @@ import socket from '../config/socket'
           this.userdata = data + ' is the winner'
         })
         console.log('ok')
+      },
+      deleteData () {
+        socket.emit('delete', true)
+        localStorage.clear()
+        this.$router.push('/')
       }
+
     },
     created () {
+      this.userId = localStorage.id
       socket.on('result-login', data => {
         this.userdata = data
         console.log(this.userdata)
