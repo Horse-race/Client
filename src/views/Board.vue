@@ -35,7 +35,7 @@
                     <th>29</th>
                     <th>30</th>
                 </tr>
-                <tr v-for="user in userdata" :key="user">
+                <tr v-for="user in userdata" :key="user.id">
                     <th>{{user.name}}</th>
                     <td class="light"><b style="color: red;" v-if="user.pos == 1"><img id="kuda" :src="user.img"></b></td>
                     <td class="dark"><b style="color: red;" v-if="user.pos == 2"><img id="kuda" :src="user.img"></b></td>
@@ -72,7 +72,7 @@
         </table>
         <h5>ID : {{userId}}  {{stat}}</h5>
         <div class="test" v-if="stat == userId">
-        <button class="btn btn-dark" @click.prevent="move" v-if="userdata.length > 1">Go</button>
+        <button class="btn btn-dark" @click.prevent="move(); roll()" v-if="userdata.length > 1">Go</button>
         </div>
         <button @click.prevent="deleteData" v-if="winner">EXIT</button>
   </div>
@@ -92,16 +92,19 @@ import socket from '../config/socket'
       }
     },
     methods: {
+      roll () {
+        socket.on('rounds', data => {
+          this.stat = data
+          console.log(data)
+        })
+      },
       move () {
+        console.log('move')
         this.stat++
         if(this.stat >this.userdata.length){
           this.stat = 1
         }
         socket.emit('round', this.stat)
-        socket.on('rounds', data => {
-          this.stat = data
-          console.log(data)
-        })
         this.userdata.forEach(user => {
           if (user.id == localStorage.id) {
             const rand = Math.ceil(Math.random(1)*6)
@@ -141,6 +144,10 @@ import socket from '../config/socket'
     },
     created () {
       this.userId = localStorage.id
+      socket.on('rounds', data => {
+          this.stat = data
+          console.log(data)
+        })
       socket.on('result-login', data => {
         this.userdata = data
         console.log(this.userdata)
