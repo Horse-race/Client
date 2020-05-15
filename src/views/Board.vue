@@ -35,75 +35,90 @@
                     <th>29</th>
                     <th>30</th>
                 </tr>
-                <tr v-for="user in lines" :key="user">
+                <tr v-for="user in userdata" :key="user">
                     <th>{{user.name}}</th>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 1">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 2">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 3">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 4">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 5">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 6">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 7">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 8">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 9">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 10">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 11">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 12">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 13">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 14">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 15">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 16">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 17">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 18">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 19">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 20">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 21">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 22">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 23">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 24">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 25">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 26">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 27">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 28">{{user.char}}</b></td>
-                    <td class="light"><b style="color: red;" v-if="user.pos == 29">{{user.char}}</b></td>
-                    <td class="dark"><b style="color: red;" v-if="user.pos == 30">{{user.char}}</b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 1"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 2"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 3"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 4"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 5"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 6"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 7"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 8"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 9"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 10"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 11"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 12"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 13"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 14"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 15"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 16"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 17"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 18"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 19"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 20"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 21"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 22"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 23"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 24"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 25"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 26"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 27"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 28"><img id="kuda" :src="user.img"></b></td>
+                    <td class="light"><b style="color: red;" v-if="user.pos == 29"><img id="kuda" :src="user.img"></b></td>
+                    <td class="dark"><b style="color: red;" v-if="user.pos == 30"><img id="kuda" :src="user.img"></b></td>
                 </tr>
             </tbody>
         </table>
-        <button @click.prevent="move">Go</button>
+        <h5>Dice Roll : {{diceroll}}</h5>
+        <button @click.prevent="move" v-if="userdata.length > 1">Go</button>
+        {{winner}}
   </div>
 </template>
 
 <script>
-import Lines from '@/components/Lines.vue'
-
+import socket from '../config/socket'
   export default {
     name: 'Board',
-    components: {
-      Lines
-    },
     data () {
       return {
-        lines: [{name: 'player1', pos: 1, char: 'A'},{name: 'player2', pos: 1, char: 'B'},{name: 'player3', pos: 1, char: 'C'}],
-        stat: 0
+        userdata: [],
+        stat: 1,
+        diceroll: 0,
+        winner: ''
       }
     },
     methods: {
       move () {
-        if(this.stat >= this.lines.length) {
-          this.stat = 0
-        }
-        this.lines.forEach(el=>{
-          if(el.name == this.lines[this.stat].name) {
-            let rand = Math.ceil(Math.random()*6)
-            el.pos += rand
-            if (el.pos >=30 ) {
-              el.pos = 30
+        this.userdata.forEach(user => {
+          if (user.id == localStorage.id) {
+            const rand = Math.ceil(Math.random(1)*6)
+            user.pos += rand
+            if (user.pos >= 30) {
+              user.pos = 30
+              user.finished = true
+              socket.emit('finish', user.name)
+              socket.on('finish-msg', data => {
+                this.winner = data
+                localStorage.clear()
+                this.$router.push('/')
+                location.reload()
+              })
             }
           }
         })
-        this.stat++
+        socket.emit('movement', this.userdata)
+        socket.on('updated', data => {
+          this.userdata = data + ' is the winner'
+        })
+        console.log('ok')
       }
+    },
+    created () {
+      socket.on('result-login', data => {
+        this.userdata = data
+        console.log(this.userdata)
+      })
     }
   }
 </script>
@@ -115,9 +130,10 @@ import Lines from '@/components/Lines.vue'
   height: 100%;
 }
 
-.chess-board { border-spacing: 0; border-collapse: collapse; }
-.chess-board th { padding: .5em; }
-.chess-board td { border: 1px solid; width: 2em; height: 2em; }
-.chess-board .light { background: #eee; }
-.chess-board .dark { background: #000; }
+.chess-board { border-spacing: 0; border-collapse: collapse; margin-top: 200px; }
+.chess-board th { padding: 10px; text-align: center; }
+.chess-board td { border: 1px solid rgb(104, 88, 88);; width: 40px; height: 40px; }
+.chess-board .light { background: rgb(0, 116, 25); }
+.chess-board .dark { background: rgb(2, 90, 21); }
+#kuda{ height: 30px; width: 30px; }
 </style>

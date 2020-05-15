@@ -38,10 +38,6 @@
       login () {
         this.$router.push('/game')
       }
-    }, 
-    created () {
-      if (localStorage.username) {
-      }
     }
   }
 </script>
