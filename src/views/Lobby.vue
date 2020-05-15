@@ -56,7 +56,7 @@ export default {
             // console.log(this.roomList)
         },
         listRoom() {
-            socket.emit('get-rooms')
+            socket.emit('get-rooms', this.roomList)
             this.loading = true
         },
         listenOnSocketEvent() {
@@ -83,7 +83,7 @@ export default {
                 socket.emit('get-rooms')
             })
         },
-        destoyed(){
+        destroyed(){
             socket.off('get-rooms')
             socket.off('room-created')
             socket.off('get-in-to-room')
