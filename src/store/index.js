@@ -4,11 +4,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    username: ''
+    username: '',
+    socket: null
   },
   mutations: {
     SET_USERNAME (state, payload) {
       state.username = payload
+    },
+    SET_SOCKET (state, payload){
+      state.socket = payload
     }
   },
   actions: {

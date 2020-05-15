@@ -12,7 +12,7 @@
         <form @submit.prevent="login">
         <div class="content">
           <div class="row">
-            <input class="text-input" type="text" placeholder="input username" v-model="data.username">
+            <input class="text-input" type="text" placeholder="input username" v-model="playerName">
             <button type="submit" class="btn btn-primary" style="width: 80px;">Submit</button>
           </div>
         </div>
@@ -30,19 +30,17 @@
     name: 'Login',
     data () {
       return {
-        data: {
-          username: '',
-          move: 0
-        }
+          playerName: ''
       }
     },
     methods: {
       login () {
         this.$router.push('/lobby')
+        localStorage.setItem('playerName', this.playerName)
       }
     }, 
     created () {
-      if (localStorage.username) {
+      if (localStorage.playerName) {
       }
     }
   }
