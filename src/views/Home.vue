@@ -25,6 +25,7 @@
 
 <script>
 // @ is an alias to /src
+
 import socket from '../config/socket'
 export default {
   name: 'Home',
@@ -123,3 +124,4 @@ export default {
   margin-top: 20px;
 }
 </style>
+
